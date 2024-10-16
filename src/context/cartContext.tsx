@@ -27,9 +27,13 @@ const CartContextProvider = ({ children }: CartContextProviderProps) => {
 
   const addProduct = (id: number) => {};
 
-  const removeProduct = (id: number) => {};
+  const removeProduct = (id: number) => {
+    setUserCart(prevProducts => prevProducts.filter(product => product.id !== id))
+  };
 
-  const removeAll = () => {};
+  const removeAll = () => {
+    setUserCart([])
+  };
 
   return (
     <CartContext.Provider
