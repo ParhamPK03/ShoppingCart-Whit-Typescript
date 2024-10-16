@@ -20,9 +20,11 @@ const CartContextProvider = ({ children }: CartContextProviderProps) => {
   const [shop, setShop] = useState<Product[]>([]);
 
   useEffect(() => {
-    fetch("https://fakestoreapi.com/products")
-      .then((res) => res.json())
-      .then((data) => setShop(data));
+    (async () => {
+      const res = await fetch("https://fakestoreapi.com/products");
+      const data = (await res.json()) as Product[];
+      setShop(data);
+    })();
   }, []);
 
   const addProduct = (id: number) => {
