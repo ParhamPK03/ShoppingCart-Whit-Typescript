@@ -4,8 +4,7 @@ import { Link } from "react-router-dom";
 import { CartContext } from "../context/cartContext";
 
 function Header() {
-
-   const cart = useContext(CartContext)
+  const cart = useContext(CartContext);
 
   return (
     <header>
